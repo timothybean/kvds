@@ -1,0 +1,178 @@
+# GraphQL schema example
+#
+# https://gqlgen.com/getting-started/
+
+type Todo {
+  id: ID!
+  text: String!
+  done: Boolean!
+  user: User!
+}
+
+type User {
+  id: ID!
+  name: String!
+}
+
+type Config {
+	logLevel:                   String
+	logDestinations:            [String]
+	logFile:                    String
+	readTimeout:                String
+	writeTimeout:               String
+	readBufferCount:            Int
+	writeQueueSize:             Int
+	udpMaxPayloadSize:          Int
+	externalAuthenticationURL:  String
+	api:                        Boolean
+	apiAddress:                 String
+	metrics:                    Boolean
+	metricsAddress:             String
+	pprof:                      Boolean
+	pprofAddress:               String
+	runOnConnect:               String
+	runOnConnectRestart:        Boolean
+	runOnDisconnect:            String
+  
+  """ RTSP Server
+  """
+
+  rtsp:                       Boolean
+	rtspDisable:                Boolean
+	protocols:                  [String]
+	encryption:                 String
+	rtspAddress:                String
+	rtspsAddress:               String
+	rtpAddress:                 String
+	rtcpAddress:                String
+	multicastIPRange:           String
+	multicastRTPPort:           Int
+	multicastRTCPPort:          Int
+	serverKey:                  String
+	serverCert:                 String
+	authMethods:                [String]
+
+  """ RTMP Server
+  """
+  rtmp:                      Boolean
+	rtmpDisable:               Boolean
+	rtmpAddress:               String
+	rtmpEncryption:            String
+	rtmpsAddress:              String
+	rtmpServerKey:             String
+	rtmpServerCert:            String
+}
+
+type Group {
+	name:                      String
+	enabled:                   Boolean  
+	enable_public:             Boolean 
+	allow_publish:             Boolean 
+	allow_rtsp:                Boolean 
+	allow_webrtc:              Boolean 
+	allow_hls:                 Boolean 
+
+  """ General
+  """
+	paths:                     [Path]
+
+	""" Authentication
+  """
+	publishUser:              String
+	publishPass:              String
+	publishIPs:               String
+	readUser:                 String
+	readPass:                 String
+	readIPs:                  String
+}
+
+type Path {
+	name:                      String
+	enabled:                   Boolean  
+	enable_public:             Boolean 
+	allow_publish:             Boolean 
+	allow_rtsp:                Boolean 
+	allow_webrtc:              Boolean 
+	allow_hls:                 Boolean 
+
+	paths:                     [Path]
+
+	""" General
+  """
+	source:                     String
+	sourceFingerprint:          String
+	sourceOnDemand:             Boolean
+	sourceOnDemandStartTimeout: String
+	sourceOnDemandCloseAfter:   String
+	maxReaders:                 Int
+	srtReadPassphrase:          String
+	fallback:                   String
+	muxHLS:                     Boolean
+
+  """ Record
+  """
+	record:                     Boolean
+	recordPath:                 String
+	recordFormat:               Int
+	recordPartDuration:         String
+	recordSegmentDuration:      String
+	recordDeleteAfter:          String
+
+	""" Authentication
+  """
+	publishUser:                String
+	publishPass:                String
+	publishIPs:                 String
+	readUser:                   String
+	readPass:                   String
+	readIPs:                    String
+
+	""" Publisher source
+  """
+	overridePublisher:          Boolean
+	srtPublishPassphrase:       String
+
+	""" RTSP source
+  """
+	rtspTransport:              Int
+	rtspAnyPort:                Boolean
+	rtspRangeType:              Int
+	rtspRangeStart:             String
+
+	""" Redirect Srouces
+  """
+	sourceRedirect:             String
+
+  """ Hooks
+  """
+	runOnInit:                  String
+	runOnInitRestart:           Boolean  
+	runOnDemand:                String
+	runOnDemandRestart:         Boolean  
+	runOnDemandStartTimeout:    String
+	runOnDemandCloseAfter:      String
+	runOnUnDemand:              String        
+	runOnReady:                 String        
+	runOnReadyRestart:          Boolean          
+	runOnNotReady:              String        
+	runOnRead:                  String        
+	runOnReadRestart:           Boolean          
+	runOnUnread:                String        
+	runOnRecordSegmentCreate:   String        
+	runOnRecordSegmentComplete: String    
+}
+
+type Query {
+  todos: [Todo!]!
+  config: Config!
+  groups: [Group]
+}
+
+input NewTodo {
+  text: String!
+  userId: String!
+}
+
+type Mutation {
+  createTodo(input: NewTodo!): Todo!
+}

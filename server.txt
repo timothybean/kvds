@@ -1,0 +1,8 @@
+scp -v ./kvds.json qfa-admin@192.168.117.230:/home/qfa-admin/
+scp -v ./kvds qfa-admin@192.168.117.230:/home/qfa-admin/
+
+qfa-admin
+str@3minizfun!
+
+CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -o ./build/arm/kvds
+scp -v ./kvds.json adlink@10.6.133.100:/home/adlink/kvds.json

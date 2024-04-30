@@ -1,0 +1,15 @@
+[Unit]
+Description=KVDS service
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/home/adlink/kvds
+WorkingDirectory=/home/adlink/
+Restart=always
+RestartSec=5
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=%n
