@@ -181,7 +181,7 @@ type Conf struct {
 	PathDefaults Path `json:"sourceDefaults"`
 
 	// Sources
-	Sources map[string]*Source `json:"paths"`
+	//Sources map[string]*Source `json:"sources"`
 
 	// Paths
 	OptionalPaths map[string]*OptionalPath `json:"sources"`
@@ -202,9 +202,9 @@ func (conf *Conf) setDefaults() {
 	conf.WriteTimeout = 10 * StringDuration(time.Second)
 	conf.WriteQueueSize = 512
 	conf.UDPMaxPayloadSize = 1472
-	conf.APIAddress = "127.0.0.1:9997"
-	conf.MetricsAddress = "127.0.0.1:9998"
-	conf.PPROFAddress = "127.0.0.1:9999"
+	conf.APIAddress = "0.0.0.0:9997"
+	conf.MetricsAddress = "0.0.0.0:9998"
+	conf.PPROFAddress = "0.0.0.0:9999"
 
 	// RTSP
 	conf.RTSP = true

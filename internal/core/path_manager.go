@@ -245,11 +245,13 @@ outer:
 
 func (pm *pathManager) getSourceForPath(path string, method string) (string, error) {
 	pSplit := strings.Split(path, "/")
+
 	if len(pSplit) > 1 {
 		if g, ok := pm.groups[pSplit[0]]; ok {
 			if g.Enabled {
 				if p, ok := g.Paths[pSplit[1]]; ok {
 					if p.Enabled {
+						// TODO switch from path to group setting for path
 						switch method {
 						case "NULL":
 							return p.Source, nil

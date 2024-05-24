@@ -49,15 +49,18 @@ func srtCheckPassphrase(passphrase string) error {
 
 // Path is a path configuration.
 type Path struct {
-	Regexp       *regexp.Regexp `json:"-"`    // filled by Check()
-	Name         string         `json:"name"` // filled by Check()
-	Enabled      bool           `json:"enabled"`
-	EnablePublic bool           `json:"enablePublic"`
-	AllowRTSP    bool           `json:"allow_rtsp"`
-	AllowWebRTC  bool           `json:"allow_webrtc"`
-	AllowHLS     bool           `json:"allow_hls"`
+	Regexp          *regexp.Regexp `json:"-"` // filled by Check()
+	Id              string         `json:"id"`
+	Name            string         `json:"name"` // filled by Check()
+	Description     string         `json:"description"`
+	Enabled         bool           `json:"enabled"`
+	EnablePublic    bool           `json:"enablePublic"`
+	AllowRTSP       bool           `json:"allowRTSP"`
+	AllowWebRTC     bool           `json:"allowWebRTC"`
+	AllowHLS        bool           `json:"allowHLS"`
+	SnapshotEnabled bool           `json:"snapshotsEnabled"`
 
-	Paths map[string]*Path `json:"paths"`
+	//Paths map[string]*Path `json:"paths"`
 
 	// General
 	Source                     string         `json:"source"`
@@ -221,7 +224,7 @@ func (pconf Path) Clone() *Path {
 }
 
 func (pconf *Path) check(conf *Conf, name string) error {
-	pconf.Name = name
+	pconf.Id = name
 
 	switch {
 	case name == "all_others", name == "all":

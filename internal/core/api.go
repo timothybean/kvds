@@ -11,6 +11,7 @@ import (
 	"sync"
 	"time"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
 
@@ -192,6 +193,8 @@ func newAPI(
 
 	router := gin.New()
 	router.SetTrustedProxies(nil) //nolint:errcheck
+
+	router.Use(cors.Default())
 
 	group := router.Group("/")
 

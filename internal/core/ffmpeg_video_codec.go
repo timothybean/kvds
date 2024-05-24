@@ -7,8 +7,8 @@ import (
 )
 
 // #cgo pkg-config: libavcodec libavutil libswscale libavformat
-//// #cgo CFLAGS: -I /home/timothy/work/arm/ffmpeg_arm/include
-//// #cgo LDFLAGS: -L /home/timothy/work/arm/ffmpeg_arm/lib -l:libavcodec.a -l:libavutil.a -l:libswscale.a -l:libavformat.a
+// #cgo CFLAGS: -I /home/timothy/work/arm/ffmpeg_arm/include
+// #cgo LDFLAGS: -L /home/timothy/work/arm/ffmpeg_arm/lib
 // #include <libavcodec/avcodec.h>
 // #include <libavutil/imgutils.h>
 // #include <libswscale/swscale.h>

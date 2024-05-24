@@ -6,3 +6,10 @@ str@3minizfun!
 
 CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -o ./build/arm/kvds
 scp -v ./kvds.json adlink@10.6.133.100:/home/adlink/kvds.json
+
+
+//PKG_CONFIG_PATH=/home/timothy/work/arm/ffmpeg_arm/lib/pkgconfig CGO_ENABLED=1 GOOS=linux GOARCH=arm64 CC=aarch64-linux-gnu-gcc go build -o ./build/arm/kvds
+
+PKG_CONFIG_PATH=/home/timothy/work/arm/ffmpeg_arm/lib/pkgconfig CGO_ENABLED=1 GOOS=linux GOARCH=arm64 CC=aarch64-linux-gnu-gcc go build -tags netgo,osusergo --ldflags '-s -w -linkmode external -extldflags=-static' -o ./build/arm/kvds
+
+ffprobe -v quiet -print_format json -show_streams "rtsp://localhost:8554/internal/test"

@@ -162,12 +162,32 @@
 	},
 	"sources": {
 		"compressed": {
-			"enabled": true,
-			"name":"Garage camera"
+			"enabled": false,
+			"name":"Camera Trasncoded",
+			"description": "Transcoded"
 		},
 		"90f118ac-28df-45f9-b2a2-bb10d28b4560": {
-			"name":"Garage camera",
+			"name":"Garage camera source",
+			"description": "Tim's Office Camera",
 			"source": "rtsp://10.6.133.218/stream1",
+			"enabled": true
+		},
+		"90f118ac-28df-45f9-b2a2-bb10d28b4555": {
+			"name":"Office Camera",
+			"description": "Tim's Office Camera",
+			"source": "rtsp://admin:RTKMUL@192.168.40.53/H.264",
+			"enabled": true
+		},
+		"90f118ac-28df-45f9-b2a2-bb10d28b41b3": {
+			"name":"QFree Rise",
+			"description": "QFree Rise Office Camera",
+			"source": "wheps://kvds.q-dev.io/internal/rise/whep",
+			"enabled": true
+		},
+		"90f118ac-28df-45f9-b2a2-bb10d28b41b4": {
+			"name":"QFree Bosch",
+			"description": "QFree Bosch Office Camera",
+			"source": "wheps://kvds.q-dev.io/internal/bosch/whep",
 			"enabled": true
 		}
 	},
@@ -176,7 +196,31 @@
             "source": "90f118ac-28df-45f9-b2a2-bb10d28b4560",
             "enabled": true,
             "interval": 5,
-            "on_demand": true,
+            "onDemand": true,
+            "width": 720,
+            "height": 480
+        },
+		"5a5b61ae-bbce-4fa8-861f-6f8c30615c99": {
+            "source": "90f118ac-28df-45f9-b2a2-bb10d28b4555",
+            "enabled": true,
+            "interval": 5,
+            "onDemand": true,
+            "width": 720,
+            "height": 480
+        },
+		"5a5b61ae-bbce-4fa8-861f-6f8c30615c88": {
+            "source": "90f118ac-28df-45f9-b2a2-bb10d28b41b3",
+            "enabled": true,
+            "interval": 5,
+            "onDemand": true,
+            "width": 720,
+            "height": 480
+        },
+		"5a5b61ae-bbce-4fa8-861f-6f8c30615c89": {
+            "source": "90f118ac-28df-45f9-b2a2-bb10d28b41b4",
+            "enabled": true,
+            "interval": 5,
+            "onDemand": true,
             "width": 720,
             "height": 480
         }
@@ -188,43 +232,43 @@
 					"name":"Garage camera",
 					"source": "compressed",
 					"enabled": true,
-					"allow_rtsp": true,
-					"allow_webrtc": true,
-					"allow_hls": true
+					"allowRTSP": true,
+					"allowWebRTC": true,
+					"allowHLS": true
 				},
 				"test": {
-					"name":"Garage camera",
+					"name":"Garage camera 1",
 					"source": "90f118ac-28df-45f9-b2a2-bb10d28b4560",
 					"enabled": true,
-					"allow_rtsp": true,
-					"allow_webrtc": true,
-					"allow_hls": true
+					"allowRTSP": true,
+					"allowWebRTC": true,
+					"allowHLS": true
 				},
 				"test1": {
-					"name":"Garage camera",
+					"name":"Garage camera 2",
 					"source": "90f118ac-28df-45f9-b2a2-bb10d28b4560",
 					"enabled": true,
-					"allow_rtsp": false,
-					"allow_webrtc": true,
-					"allow_hls": true
+					"allowRTSP": false,
+					"allowWebRTC": true,
+					"allowHLS": true
 				},
 				"test3": {
-					"name":"Garage camera",
+					"name":"Garage camera 3",
 					"source": "90f118ac-28df-45f9-b2a2-bb10d28b4560",
 					"enabled": true,
-					"allow_rtsp": false,
-					"allow_webrtc": true,
-					"allow_hls": true
+					"allowRTSP": false,
+					"allowWebRTC": true,
+					"allowHLS": true
 				},
 				"all_others": null,
 				"paths":{}
 			},
 			"enabled": true,
-			"enable_public": true,
-			"allow_publish": true,
-			"allow_rtsp": true,
-			"allow_webrtc": true,
-			"allow_hls": true
+			"enablePublic": true,
+			"allowPublish": true,
+			"allowRTSP": true,
+			"allowWebRTC": true,
+			"allowHLS": true
 		},
 		"external": {
 			"paths":{
@@ -232,19 +276,35 @@
 					"name":"Garage camera",
 					"source": "90f118ac-28df-45f9-b2a2-bb10d28b4560",
 					"enabled": true,
-					"allow_rtsp": true,
-					"allow_webrtc": true,
-					"allow_hls": true
+					"allowRTSP": true,
+					"allowWebRTC": true,
+					"allowHLS": true
+				},
+				"bosch": {
+					"name":"CDOT camera 1",
+					"source": "90f118ac-28df-45f9-b2a2-bb10d28b41b4",
+					"enabled": true,
+					"allowRTSP": true,
+					"allowWebRTC": true,
+					"allowHLS": true
+				},
+				"rise": {
+					"name":"CDOT camera 2",
+					"source": "90f118ac-28df-45f9-b2a2-bb10d28b41b3",
+					"enabled": true,
+					"allowRTSP": true,
+					"allowWebRTC": true,
+					"allowHLS": true
 				},
 				"all_others": null,
 				"paths":{}
 			},
 			"enabled": true,
-			"enable_public": true,
-			"allow_publish": true,
-			"allow_rtsp": true,
-			"allow_webrtc": true,
-			"allow_hls": true
+			"enablePublic": true,
+			"allowPublish": true,
+			"allowRTSP": true,
+			"allowWebRTC": true,
+			"allowHLS": true
 		}
 	}
 }

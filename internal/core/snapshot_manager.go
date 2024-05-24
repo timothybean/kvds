@@ -183,18 +183,21 @@ outer:
 			fmt.Printf("[hangFunction] Looping 7 \n")
 			var snap *Snapshot
 			if s, ok := sm.Snaptshots[req.name]; ok {
+				sm.Log(logger.Error, "Snapshot %s not found.", req.name)
 				if s.Image != nil {
 					snap = s
 				}
 			}
 
-			for _, s := range sm.Snaptshots {
+			/* for _, s := range sm.Snaptshots {
 				if s.path.conf.Name == req.name {
 					if s.Image != nil {
 						snap = s
+					} else {
+						sm.Log(logger.Error, "Snapshot %s image was null.", req.name)
 					}
 				}
-			}
+			} */
 
 			if snap != nil {
 				req.res <- snapshotAPISnapshotsGetRes{Image: snap.Image, err: nil}

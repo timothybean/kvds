@@ -49,11 +49,11 @@ func srtCheckPassphrase(passphrase string) error {
 
 // Source is a source configuration.
 type Source struct {
-	Regexp          *regexp.Regexp `json:"-"`    // filled by Check()
-	Name            string         `json:"name"` // filled by Check()
-	Enabled         bool           `json:"enabled"`
-	EnablePublic    bool           `json:"enablePublic"`
-	SnapshotEnabled bool           `json:"snapshotsEnabled"`
+	Regexp  *regexp.Regexp `json:"-"`    // filled by Check()
+	Name    string         `json:"name"` // filled by Check()
+	Enabled bool           `json:"enabled"`
+	//EnablePublic    bool           `json:"enablePublic"`
+	SnapshotEnabled bool `json:"snapshotsEnabled"`
 
 	// General
 	Source                     string         `json:"source"`

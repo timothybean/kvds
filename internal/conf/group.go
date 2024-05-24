@@ -11,11 +11,11 @@ type Group struct {
 	Regexp       *regexp.Regexp `json:"-"`    // filled by Check()
 	Name         string         `json:"name"` // filled by Check()
 	Enabled      bool           `json:"enabled"`
-	EnablePublic bool           `json:"enable_public"`
-	AllowPublish bool           `json:"allow_publish"`
-	AllowRTSP    bool           `json:"allow_rtsp"`
-	AllowWebRTC  bool           `json:"allow_webrtc"`
-	AllowHLS     bool           `json:"allow_hls"`
+	EnablePublic bool           `json:"enablePublic"`
+	AllowPublish bool           `json:"allowPublish"`
+	AllowRTSP    bool           `json:"allowRTSP"`
+	AllowWebRTC  bool           `json:"allowWebRTC"`
+	AllowHLS     bool           `json:"allowHLS"`
 
 	// General
 	Paths map[string]*Path `json:"paths"`
